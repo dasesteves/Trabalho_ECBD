@@ -11,9 +11,11 @@ summary(dados)
 summary(dados_limpos) # Estatísticas descritivas
 hist(dados_limpos$Idade) # Histograma da idade dos pacientes
 
-#'dados_extracao' é para criar o dataframe já com apenas as colunas de interesse 
+#'dados_extracao' é para criar o dataframe já com apenas as colunas de interesse, podemos usar o pandas para criar esse dataset (envolve outro código e import)
 dados_extracao <- dados_limpos[, colunas_geneticas] #'colunas_geneticas' são para substituir apenas pelas colunas de interesse, 
 # podemos no entanto trabalhar diretamente com o dataset se especificarmos as colunas ou as criarmos para as diferentes analises
+# Study ID	Patient ID	Sample ID	Diagnosis Age	Disease Stage Cancer Type	Cancer Type Detailed	Ethnicity Category	Fraction Genome Altered	Genetic Ancestry Label	ICD-10 Classification	In PanCan Pathway Analysis	MSI MANTIS Score	MSIsensor Score	Mutation Count	Oncotree Code	Progress Free Survival (Months)	Number of Samples Per Patient	Sample Type	Sex	Somatic Status	Subtype	Tissue Prospective Collection Indicator	Tissue Retrospective Collection Indicator Tissue Source Site Tissue Source Site Code	TMB (nonsynonymous)	Tumor Disease Anatomic Site	Tumor Type	Patient Weight	Winter Hypoxia Score
+
 
 # Imputação pela média para variáveis contínuas
 dados_limpos <- dados
