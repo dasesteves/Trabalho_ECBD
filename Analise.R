@@ -4,6 +4,10 @@
 # - análise estatística univariada; análise de expressão diferencial e de enriquecimento
 
 
+
+
+
+
 # Carregar os dados
 dados <- read.delim("caminho/para/o/arquivo.tsv")
 
