@@ -6,12 +6,20 @@
 # Carregar os dados
 dados <- read.delim("caminho/para/o/arquivo.tsv")
 
+# Imputação pela média para variáveis contínuas
+dados_limpos <- dados
+for(i in 1:ncol(dados_limpos)) {
+  if(is.numeric(dados_limpos[,i])) {
+    dados_limpos[is.na(dados_limpos[,i]), i] <- mean(dados_limpos[,i], na.rm = TRUE)
+  }
+}
+
 # Sumarização dos dados
-summary(dados) # Estatísticas descritivas
-hist(dados$Idade) # Histograma da idade dos pacientes
+summary(dados_limpos) # Estatísticas descritivas
+hist(dados_limpos$Idade) # Histograma da idade dos pacientes
 
 # Supondo que 'dados_limpos' é o seu dataframe e 'colunas_geneticas' são as colunas de interesse
-dados_genetica <- dados_limpos[, colunas_geneticas]
+dados_geneticos <- dados_limpos[, colunas_geneticas]
 
 # Visualização com heatmap (exemplo)
 pheatmap::pheatmap(dados_geneticos)
