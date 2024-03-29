@@ -1,0 +1,25 @@
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+# carregar os dados de expressão genética
+dados_expr_genetica <- read_csv("bla/bla/bla/nome do ficheiro")
+
+# remover colunas não numéricas se houver
+dados_expr_genetica_numeric <- select_if(dados_expr_genetica, is.numeric)
+
+pca_result <- prcomp(dados_expr_genetica_numeric, scale. = TRUE)
+
+#extrair os componentes principais
+pca_df <- as.data.frame(pca_result$x)
+
+#colorir os pontos no plot, substituir "coluna" pelo nome da coluna
+pca_df$Coluna <- dados_expr_genetica$Coluna
+
+#plotar o gráfico de PCA
+pca_plot <- ggplot(pca_df, aes(x = PC1, y = PC2, color = Coluna)) +
+  geom_point(size = 3) +
+  labs(x = "PC1", y = "PC2", title = "Plot de PCA com Dados de Expressão Genética")
+
+#gráfico
+print(pca_plot)
