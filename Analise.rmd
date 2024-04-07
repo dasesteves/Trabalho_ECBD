@@ -172,11 +172,14 @@ View(df)
 install.packages("ggplot2")
 library(ggplot2)
 
-dados_sample <- read.delim("C:/x/x/x/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
-dados_patient <- read.delim("C:/x/x/x/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
+dados_sample <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
+dados_patient <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
 
 dados_sample_limpo <- dados_sample[-c(1:4), ]
 dados_patient_limpo <- dados_patient[-c(1:4), ]
+
+dados_patient_limpo$Overall.Survival..Months. <- as.numeric(as.character(dados_patient_limpo$Overall.Survival..Months.))
+dados_patient_limpo$Diagnosis.Age <- as.numeric(as.character(dados_patient_limpo$Diagnosis.Age))
 
 head(dados_sample_limpo)
 str(dados_sample_limpo)
@@ -195,28 +198,6 @@ ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   labs(title = "Relação entre MSI e TMB", x = "Score MSI", y = "Score TMB")
 
 
-ggplot(dados_patient_limpo, aes(x = TCGA.PanCanAtlas.Cancer.Type.Acronym, y = Diagnosis.Age)) +
-  geom_boxplot() +
-  labs(title = "Distribuição da Idade de Diagnóstico pelo câncro", x = "Câncro", y = "Idade de Diagnóstico")
-
-ggplot(dados_patient_limpo, aes(x = Overall.Survival..Months., y = Months.of.disease.specific.survival)) +
-  geom_point() +
-  labs(title = "Sobrevivência Geral vs. Sobrevivência Específica da Doença",
-       x = "Sobrevivência Geral (Meses)",
-       y = "Sobrevivência Específica da Doença (Meses)")
-
-ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.)) +
-  geom_point() +
-  labs(title = "Idade do Diagnóstico vs. Sobrevivência Geral",
-       x = "Idade do Diagnóstico",
-       y = "Sobrevivência Geral (Meses)")
-
-ggplot(dados_patient_limpo, aes(x = Radiation.Therapy, y = Overall.Survival..Months., fill = Radiation.Therapy)) +
-  geom_boxplot() +
-  labs(title = "Sobrevivência Geral com e sem Terapia de Radiação",
-       x = "Terapia de Radiação",
-       y = "Sobrevivência Geral (Meses)",
-       fill = "Terapia de Radiação")
 
 ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Overall.Survival.Status)) +
   geom_bar(position = "dodge") +
@@ -232,6 +213,14 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) 
        y = "Contagem",
        fill = "Status de Doença Livre")
 
+
+ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.)) +
+  geom_point() +
+  scale_x_continuous(limits = c(40, max(dados_patient_limpo$Diagnosis.Age)), breaks = seq(40, max(dados_patient_limpo$Diagnosis.Age), by = 5)) +
+  scale_y_continuous(limits = c(1, 100), breaks = seq(0, 100, by = 10)) +
+  labs(title = "Idade do Diagnóstico vs. Sobrevivência Geral",
+       x = "Idade do Diagnóstico",
+       y = "Sobrevivência Geral (Meses)")
 
 
 
