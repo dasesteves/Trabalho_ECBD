@@ -172,8 +172,8 @@ View(df)
 install.packages("ggplot2")
 library(ggplot2)
 
-dados_sample <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
-dados_patient <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
+dados_sample <- read.delim("C:/x/x/x/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
+dados_patient <- read.delim("C:/x/x/x/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
 
 dados_sample_limpo <- dados_sample[-c(1:4), ]
 dados_patient_limpo <- dados_patient[-c(1:4), ]
