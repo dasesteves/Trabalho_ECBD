@@ -199,13 +199,13 @@ summary(dados_patient_limpo)
 
 
 
-
+#Cria um gráfico de dispersão relacionando o MSI e o TMB
 ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   geom_point() +
   labs(title = "Relação entre MSI e TMB", x = "Score MSI", y = "Score TMB")
 
 
-
+#Cria um gráfico de barras da distribuição do status de sobrevivência pela raça
 ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Overall.Survival.Status)) +
   geom_bar(position = "dodge") +
   labs(title = "Distribuição do Status de Sobrevivência Geral por Raça",
@@ -213,6 +213,7 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Overall.Survival.Statu
        fill = "Status de Sobrevivência Geral",
        y = "Número de Pacientes")
 
+#Cria um gráfico de barras da distribuição do status de doença livre pela raça
 ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) +
   geom_bar(position = "dodge") +
   labs(title = "Distribuição do Status de Doença Livre por Raça",
@@ -220,7 +221,7 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) 
        y = "Contagem",
        fill = "Status de Doença Livre")
 
-
+#Cria um gráfico de dispersão relacionando a idade do diagnóstico com a sobrevivência geral
 ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.)) +
   geom_point() +
   scale_x_continuous(limits = c(40, max(dados_patient_limpo$Diagnosis.Age)), breaks = seq(40, max(dados_patient_limpo$Diagnosis.Age), by = 5)) +
