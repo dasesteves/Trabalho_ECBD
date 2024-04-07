@@ -183,6 +183,8 @@ dados_patient_limpo <- dados_patient[-c(1:4), ]
 #Conversão do conjunto de dados para o tipo de dados numéricos
 dados_patient_limpo$Overall.Survival..Months. <- as.numeric(as.character(dados_patient_limpo$Overall.Survival..Months.))
 dados_patient_limpo$Diagnosis.Age <- as.numeric(as.character(dados_patient_limpo$Diagnosis.Age))
+dados_sample_limpo$MSI.MANTIS.Score <- as.numeric(dados_sample_limpo$MSI.MANTIS.Score)
+dados_sample_limpo$TMB..nonsynonymous. <- as.numeric(dados_sample_limpo$TMB..nonsynonymous.)
 
 #Visualizar os primeiros registros do conjunto de dados
 head(dados_sample_limpo)
@@ -202,7 +204,10 @@ summary(dados_patient_limpo)
 #Cria um gráfico de dispersão relacionando o MSI e o TMB
 ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   geom_point() +
-  labs(title = "Relação entre MSI e TMB", x = "Score MSI", y = "Score TMB")
+  labs(title = "Relação entre MSI e TMB", x = "Score MSI", y = "Score TMB") +
+  scale_x_continuous(limits = c(0, 0.5)) +
+  scale_y_continuous(limits = c(0, 6))
+
 
 
 #Cria um gráfico de barras da distribuição do status de sobrevivência pela raça
