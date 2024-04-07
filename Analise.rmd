@@ -205,7 +205,7 @@ summary(dados_patient_limpo)
 ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   geom_point() +
   labs(title = "Relação entre MSI e TMB", x = "Score MSI", y = "Score TMB") +
-  scale_x_continuous(limits = c(0, 0.5)) +
+  scale_x_continuous(limits = c(0.24, 0.38)) +
   scale_y_continuous(limits = c(0, 6))
 
 
