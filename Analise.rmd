@@ -208,7 +208,11 @@ ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   scale_x_continuous(limits = c(0.24, 0.38)) +
   scale_y_continuous(limits = c(0, 6))
 
+#Calcular o coeficiente de correlação de Pearson
+correlation1 <- cor(dados_sample_limpo$MSI.MANTIS.Score, dados_sample_limpo$TMB..nonsynonymous.)
 
+#Exibir o valor da correlação
+print(correlation1)
 
 #Cria um gráfico de barras da distribuição do status de sobrevivência pela raça
 ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Overall.Survival.Status)) +
@@ -218,6 +222,16 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Overall.Survival.Statu
        fill = "Status de Sobrevivência Geral",
        y = "Número de Pacientes")
 
+#Criar uma tabela de contingência das duas variáveis
+tabela_contingencia1<- table(dados_patient_limpo$Race.Category, dados_patient_limpo$Overall.Survival.Status)
+
+#Realizar o teste qui-quadrado de independência
+resultado_teste1 <- chisq.test(tabela_contingencia1)
+
+#Exibir o resultado do teste
+print(resultado_teste)
+
+
 #Cria um gráfico de barras da distribuição do status de doença livre pela raça
 ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) +
   geom_bar(position = "dodge") +
@@ -225,6 +239,16 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) 
        x = "Raça",
        y = "Contagem",
        fill = "Status de Doença Livre")
+
+# Criar uma tabela de contingência das duas variáveis
+tabela_contingencia2 <- table(dados_patient_limpo$Race.Category, dados_patient_limpo$Disease.Free.Status)
+
+# Realizar o teste qui-quadrado de independência
+resultado_teste2 <- chisq.test(tabela_contingencia2)
+
+# Exibir o resultado do teste
+print(resultado_teste2)
+
 
 #Cria um gráfico de dispersão relacionando a idade do diagnóstico com a sobrevivência geral
 ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.)) +
@@ -235,7 +259,13 @@ ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.
        x = "Idade do Diagnóstico",
        y = "Sobrevivência Geral (Meses)")
 
-# Instalar os packages
+#Calcular o coeficiente de correlação de Pearson
+correlation2 <- cor(dados_patient_limpo$Diagnosis.Age, dados_patient_limpo$Overall.Survival..Months.)
+
+#Exibir o valor da correlação
+print(correlation2)
+
+#Instalar os packages
 install.packages("survival")
 install.packages("survminer")
 library(survival)
@@ -259,7 +289,11 @@ ggsurvplot(surv_fit, data = dados_patient_limpo, risk.table = TRUE,
            xlab = "Tempo (Meses)", ylab = "Probabilidade de Sobrevivência",
            title = "Curva de Sobrevivência")
 
+#Calcular a correlação entre a idade do diagnóstico e a sobrevivência geral
+correlation_test3 <- cor.test(dados_patient_limpo$Diagnosis.Age, dados_patient_limpo$Overall.Survival..Months.)
 
+#Exibir o resultado do teste
+print(correlation_test3)
 
 Todos os ficheiros a ser analisados têm em comum um "patient_ID", sendo que o ficheiro "data_clinical_patient" possui metadados relativos aos pacientes, o ficheiro "data_clinical_sample" possui metadados relativos à amostra e o ficheiro "data_mrna_seq_v2_rsem_zscores_ref_all_samples" possui dados normalizados relativos ao sequenciamento de mRNA. Outros ficheiros estão ao nosso dispor para complementar a nossa análise caso seja necessário numa fase posterior.
 
