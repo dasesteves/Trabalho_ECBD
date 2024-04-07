@@ -169,8 +169,11 @@ View(df)
 
 
 
-dados_sample <- read.delim("x/x/x/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
-dados_patient <- read.delim("x/x/x/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
+install.packages("ggplot2")
+library(ggplot2)
+
+dados_sample <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
+dados_patient <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
 
 dados_sample_limpo <- dados_sample[-c(1:4), ]
 dados_patient_limpo <- dados_patient[-c(1:4), ]
@@ -178,19 +181,12 @@ dados_patient_limpo <- dados_patient[-c(1:4), ]
 head(dados_sample_limpo)
 str(dados_sample_limpo)
 summary(dados_sample_limpo)
-describe(dados_sample_limpo)
 
-#Nao sei se e preciso fazer isto
-#missing_values <- sapply(dados_sample_limpo, function(x) sum(is.na(x)))
-#print(missing_values[missing_values > 0])
-#dados_sample_limpo$Neoplasm.Histologic.Grade[is.na(dados_sample_limpo$Neoplasm.Histologic.Grade)] <- 0
-#dados_sample_limpo$Tissue.Prospective.Collection.Indicator[is.na(dados_sample_limpo$Tissue.Prospective.Collection.Indicator)] <- 0
-#dados_sample_limpo$Tissue.Retrospective.Collection.Indicator[is.na(dados_sample_limpo$Tissue.Retrospective.Collection.Indicator)] <- 0
 
 head(dados_patient_limpo)
 str(dados_patient_limpo)
 summary(dados_patient_limpo)
-describe(dados_patient_limpo)
+
 
 #Eu fiz vários codigos que comparam varios fatores mas não sei se mete-se os codigos com os gráficos ou se mete-se só os gráficos e aonde por estas informações
 
@@ -235,6 +231,7 @@ ggplot(dados_patient_limpo, aes(x = Race.Category, fill = Disease.Free.Status)) 
        x = "Raça",
        y = "Contagem",
        fill = "Status de Doença Livre")
+
 
 
 
