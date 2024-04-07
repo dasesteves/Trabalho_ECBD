@@ -222,7 +222,29 @@ ggplot(dados_patient_limpo, aes(x = Diagnosis.Age, y = Overall.Survival..Months.
        x = "Idade do Diagnóstico",
        y = "Sobrevivência Geral (Meses)")
 
+# Instalar os packages
+install.packages("survival")
+install.packages("survminer")
+library(survival)
+library(survminer)
 
+# Verificar valores únicos na coluna Overall.Survival.Status
+unique(dados_patient_limpo$Overall.Survival.Status)
+
+# Se os valores únicos não forem numéricos ou lógicos, converta-os
+# Por exemplo, se o estado for representado por "LIVING" e "DECEASED":
+dados_patient_limpo$Overall.Survival.Status <- ifelse(dados_patient_limpo$Overall.Survival.Status == "LIVING", 0, 1)
+
+# Agora, criar um objeto de sobrevivência
+surv_obj <- Surv(dados_patient_limpo$Overall.Survival..Months., dados_patient_limpo$Overall.Survival.Status)
+
+# Ajustar a curva de sobrevivência de Kaplan-Meier
+surv_fit <- survfit(surv_obj ~ 1)
+
+# Traçar a curva de sobrevivência
+ggsurvplot(surv_fit, data = dados_patient_limpo, risk.table = TRUE,
+           xlab = "Tempo (Meses)", ylab = "Probabilidade de Sobrevivência",
+           title = "Curva de Sobrevivência")
 
 
 
