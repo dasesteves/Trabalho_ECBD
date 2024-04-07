@@ -1,3 +1,6 @@
+#Este script orienta uma pipeline de análise de dados transcriptómicos do projeto TCGA-PRAD, incluindo recuperação de dados, pré-processamento,
+#análise exploratória e análise de expressão diferencial usadno o método DESeq2.
+
 #set wd (alterar para o nosso caso)
 
 
