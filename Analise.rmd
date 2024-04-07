@@ -168,27 +168,35 @@ View(df)
 
 
 
-
+#Instalar os packages
 install.packages("ggplot2")
 library(ggplot2)
 
+#Carrega dados de um arquivo de texto em um formato de dataframe .
 dados_sample <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_sample.txt", header = TRUE, stringsAsFactors = FALSE)
 dados_patient <- read.delim("C:/Users/armin/OneDrive/Ambiente de Trabalho/dataset/data_clinical_patient.txt", header = TRUE, stringsAsFactors = FALSE)
 
+#Criação de novos conjuntos de dados removendo as primeiras 4 linhas dos conjuntos originais 
 dados_sample_limpo <- dados_sample[-c(1:4), ]
 dados_patient_limpo <- dados_patient[-c(1:4), ]
 
+#Conversão do conjunto de dados para o tipo de dados numéricos
 dados_patient_limpo$Overall.Survival..Months. <- as.numeric(as.character(dados_patient_limpo$Overall.Survival..Months.))
 dados_patient_limpo$Diagnosis.Age <- as.numeric(as.character(dados_patient_limpo$Diagnosis.Age))
 
+#Visualizar os primeiros registros do conjunto de dados
 head(dados_sample_limpo)
-str(dados_sample_limpo)
-summary(dados_sample_limpo)
-
-
 head(dados_patient_limpo)
+
+#Obter informações sobre a estrutura do conjunto de dados
+str(dados_sample_limpo)
 str(dados_patient_limpo)
+
+#Resumo estatístico do conjunto de dados
+summary(dados_sample_limpo)
 summary(dados_patient_limpo)
+
+
 
 
 
