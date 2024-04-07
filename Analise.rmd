@@ -1,5 +1,5 @@
 ---
-title: "Adenocarcinoma da Próstata"
+title: "Adenocarcinoma prostático"
 author: "Diogo Esteves (PG28935)"
 output:
   html_document: default
