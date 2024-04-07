@@ -55,6 +55,9 @@ output:
 ```
 
 ## Introdução - explicação teorica cancro da prostata, expressão genetica e RNAseq? (afunilem a informação à medida que escrevem uma introdução...)
+O cancro da próstata é um tipo comum de cancro que afeta pessoas do sexo masculino, afetando a glândula da próstata, provocando dificuldades urinárias.
+O diagnóstico envolve exames de PSA, e biópsia da próstata, e o seu tratamento pode incluir cirurgia, radioterapia, terapia hormonal ou quimioterapia.
+O Adenocarcinoma é o cancro da prostata mais comum, surgindo nas células glandulares da mesma, este cancro diagnosticado numa fase inicial tem uma taxa de sobrevivência de 98% enquanto que diagnosticado numa fase avançada a taxa de sobrevivência é de apenas 30%.
 
 
 ```{r,echo=FALSE,results= 'markup', fig.cap= "Fig 1- Exemplo de figura",fig.align='center'}
@@ -64,6 +67,10 @@ plot(0, 0, type = "n", xlim = c(0, 1), ylim = c(0, 1), xlab = "", ylab = "", axe
 rasterImage(image, 0, 0, 1, 1)
 ```
 ## Origem dos dados aqui -
+
+#Os dados que vão ser analisados neste trabalho provêm do projeto Pan-Cancer Atlas (TCGA), este projeto foi uma colaboração em larga escala de diversos investigadores de todo o mundo apoiado pelo National Cancer Institute (NCI) e pelo National Human Genome Research Institute (NHGRI).
+#Neste trabalho serão analisadas 494 amostras obtidas através do perfil molecular de mais de 11.000 tumores de 33 diferentes tipos de cancro, as obtenções destes dados foram realizadas através da utilização de diversas técnicas que permitiram examinar as alterações moleculares em diferentes níveis, quer no DNA, RNA, na proteína e na epigenética.
+#A relevância desses dados consiste na compreensão da origem, de onde, e de como os tumores se desenvolvem em humanos, a análise dos perfis moleculares de diferentes tipos de cancro terá como objetivo identificar padrões comuns, diferenças e temas emergentes entre eles, estes dados serão fundamentais para o desenvolvimento de tratamentos mais eficazes e personalizados ,para além disso, os dados servem como uma importante referência para futuras pesquisas sobre o cancro, fornecendo uma base sólida para futuros estudos e análises.
 
 ## Extração dos dados de transcriptómica e respetivos metadados da base de dados
 
