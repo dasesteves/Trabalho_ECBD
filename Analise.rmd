@@ -191,7 +191,6 @@ str(dados_patient_limpo)
 summary(dados_patient_limpo)
 
 
-#Eu fiz vários codigos que comparam varios fatores mas não sei se mete-se os codigos com os gráficos ou se mete-se só os gráficos e aonde por estas informações
 
 ggplot(dados_sample_limpo, aes(x = MSI.MANTIS.Score, y = TMB..nonsynonymous.)) +
   geom_point() +
