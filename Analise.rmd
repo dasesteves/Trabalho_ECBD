@@ -150,7 +150,7 @@ summary(res)
 #Processamento de Dados Clínicos com TCGAbiolinks
 ## dados clinicos
 
-#buscar dados clínicos do projeto TCGA-PRAD (carcinoma endometrial uterino), 
+#buscar dados clínicos do projeto TCGA-PRAD (adenocarcinoma prostático), 
 #especificamente suplementos clínicos, através de GDCquery
 query_clin <- GDCquery(project = "TCGA-PRAD", 
                        data.category = "Clinical",
