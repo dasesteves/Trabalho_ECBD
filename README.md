@@ -13,10 +13,17 @@ O trabalho tem como objetivo a análise do conjunto de dados obtidos a partir do
 
 **GDC Identifiers:**
 
-*Case UUID :* a608bf0e-a932-4541-8439-2ffb9f6294b0
-*Case ID :* TCGA-EJ-A46E
-*Project :* TCGA-PRAD
-*Project Name :* Prostate Adenocarcinoma
-*Disease Type :* Adenomas and Adenocarcinomas
-*Program :* TCGA
-*Primary Site :* Prostate gland
+*Case UUID :*   
+a608bf0e-a932-4541-8439-2ffb9f6294b0  
+*Case ID :*   
+TCGA-EJ-A46E  
+*Project :*   
+TCGA-PRAD  
+*Project Name :*   
+Prostate Adenocarcinoma  
+*Disease Type :*   
+Adenomas and Adenocarcinomas  
+*Program :*   
+TCGA  
+*Primary Site :*   
+Prostate gland
