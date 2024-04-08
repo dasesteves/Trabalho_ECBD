@@ -2,7 +2,7 @@
 # análise exploratória e análise de expressão diferencial usando o método DESeq2.
 
 # Mudar o diretório de trabalho conforme necessário
-setwd("C:/Users/dases/Desktop/Trabalho_ECDB-main/Trabalho_ECDB-main") # Alterar para o seu caminho específico
+#setwd("C:/Users/dases/Desktop/Trabalho_ECDB-main/Trabalho_ECDB-main") # Alterar 
 
 # Instalar o pacote BiocManager caso ele não esteja já instalado
 if (!requireNamespace("BiocManager", quietly = TRUE))
